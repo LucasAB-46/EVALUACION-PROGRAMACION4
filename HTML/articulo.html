@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- El título se actualizará dinámicamente con JS -->
+    <title>Artículo - MotoGP Fan Blog</title> 
+    <!-- CDN de Bootstrap (usado en el JS para elementos como img-fluid, blockquote) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- CDN de Tailwind CSS para la estética general -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <style>
+        /* Definiciones de color y fuente (Estilos en línea que replican el CSS) */
+        :root {
+            --primary-color: #e60000;
+            --secondary-color: #001f3f;
+            --light-bg: #f5f5f5;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: #333;
+        }
+        .header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-menu a {
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px; 
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .footer {
+            background-color: #333;
+            color: var(--light-bg);
+            padding: 1.5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        /* Estilos específicos del artículo */
+        .article-container {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        /* Garantiza que las imágenes dentro del contenido sean responsivas */
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .article-content p {
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Citas (blockquote) - Usando clases de Bootstrap con Tailwind-like styling */
+        .blockquote {
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            background-color: #fff8f8; /* Un fondo muy ligero para destacarlo */
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .blockquote-footer {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* Contenedor y Navegación Responsive */
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            max-width: 1200px;
+        }
+
+        @media (max-width: 767px) {
+            .header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-menu {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            .article-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <!-- Header con navegación -->
+    <header class="header">
+        <div class="container mx-auto px-4 d-flex justify-content-between align-items-center flex-wrap">
+            <div class="logo">
+                <h1>MotoGP Fan Blog</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-menu flex space-x-4 list-none p-0 m-0">
+                    <li><a href="index.html" class="text-white hover:bg-red-600 px-4 py-2 rounded-full transition duration-300">Inicio</a></li>
+                    <li><a href="contacto.html" class="text-white hover:bg-red-600 px-4 py-2 rounded-full transition duration-300">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal del artículo -->
+    <div class="container mx-auto px-4 mt-8 flex-grow">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12">
+                <article class="article-container">
+                    <!-- Título (Se actualizará con JS) -->
+                    <h1 id="article-title" class="text-4xl font-extrabold mb-4 text-gray-900">Cargando artículo...</h1>
+                    
+                    <!-- Placeholder de Carga -->
+                    <div id="loading-placeholder-detail" class="text-center my-8">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Cargando...</span>
+                        </div>
+                    </div>
+                    
+                    <!-- CONTENIDO DE LECTURA INMERSIVA -->
+                    <!-- Aquí es donde app.js inyectará todos los <p> y los <img> intercalados -->
+                    <div id="article-content" class="article-content mt-8">
+                        <!-- El contenido se cargará aquí mediante JavaScript -->
+                    </div>
+                    
+                    <a href="index.html" class="btn btn-primary mt-5 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white border-0">
+                        <i class="fas fa-arrow-left me-2"></i> Volver al Inicio
+                    </a>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="text-sm">&copy; 2025 MotoGP Fan Blog - Desarrollado para tu Evaluación Web.</p>
+    </footer>
+
+    <!-- Archivos JS -->
+    <script src="../JS/app.js"></script>
+</body>
+</html>
